@@ -1,11 +1,13 @@
 import React from "react";
-// import Header from "./components/Header";
-// import AdminSideNav from "./components/AdminSideNav";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./assets/css/App.css";
+import NavHeader from './Components/NavBar';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+
 import Login from "./pages/Authenticaiton/Login";
-// import Register from "./pages/Authenticaiton/Register";
 import Home from "./pages/Home";
+import AddUser from './Components/CreateAccount';
 
 function App() {
     return (
@@ -15,6 +17,7 @@ function App() {
                     <Route path="/" exact element={<Login/>} />
                     {/* <Route path="/register" exact element={<Register/>} /> */}
                     <Route path="/home" element={<Home/>} />
+                    <Route path="/register" element={<AddUser/>} />
 
                 </Routes>
             </Router>
