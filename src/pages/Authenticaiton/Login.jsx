@@ -9,7 +9,6 @@ function Login() {
     email: '',
     password: ''
   })
-  console.log(user)
 
   const handleChange = (e) => {
     setUser({
@@ -28,10 +27,7 @@ function Login() {
           text: 'Please fill all the fields!',
         })
       } else {
-
-        console.log("user", user)
         const res = await axios.post('http://localhost:5001/login', user)
-        console.log("res", res.message)
         if (res.data.status === true) {
           //get data form access token
           const token = res.data.accessToken
@@ -62,7 +58,6 @@ function Login() {
           window.location.href = '/home'
         }
         else {
-          console.log('resMessage', res)
           Swal.fire(
             'Login Failed',
             res.data.message,
