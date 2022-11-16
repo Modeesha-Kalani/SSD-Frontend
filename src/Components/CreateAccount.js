@@ -102,7 +102,7 @@ function validateForm(name, email, nic, phone, emp_id, type) {
       text: 'Employee ID should be between 6 and 20 characters',
     })
     return false;
-  }else if(type.length == 0){
+  }else if(type.length === 0){
     Swal.fire({
       icon: 'error',
       title: 'Oops...',

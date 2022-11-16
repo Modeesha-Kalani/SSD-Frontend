@@ -2,6 +2,18 @@ import React from 'react'
 import './css/login.css'
 
 function Login() {
+
+  const [user, setUser] = React.useState({
+    email: '',
+    password: ''
+  })
+
+  const handleChange = (e) => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value
+    })
+  }
   return (
 
     <div className="d-flex justify-content-center align-items-center login-contatiner">
