@@ -2,11 +2,11 @@ import React, { useState, useRef } from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 import axios from 'axios';
 import Dropzone from 'react-dropzone';
-
+import emailjs from '@emailjs/browser';
 
 function AddFile() {
 
-  // const form = useRef()
+  const form = useRef()
   const [file, setFile] = useState(null); // state for storing actual image
   const [previewSrc, setPreviewSrc] = useState(''); // state for storing previewImage
   const [state, setState] = useState({
@@ -40,13 +40,13 @@ function AddFile() {
   const handleOnSubmit = async (event) => {
     event.preventDefault();
 
-    // emailjs.sendForm('service_4rn8tt9', 'template_aa27ccy', form.current, 'HNN8S6PkLLM-2KP45')
-    // .then((result) => {
-    //     console.log(result.text);
-    // }, (error) => {
-    //     console.log(error.text);
-    // });
-    // event.target.reset()
+    emailjs.sendForm('service_4rn8tt9', 'template_aa27ccy', form.current, 'HNN8S6PkLLM-2KP45')
+    .then((result) => {
+        console.log(result.text);
+    }, (error) => {
+        console.log(error.text);
+    });
+    event.target.reset()
 
     try {
       const { title, description} = state;
@@ -64,10 +64,10 @@ function AddFile() {
             }
           }).then(res => {
             if (res.data.success === true) {
-              alert('Document Uploaded Successfully');
+              alert('File Uploaded Successfully');
               window.location.href = '/file';
             } else {
-              alert('Document Not Uploaded. ' + res.data.message);
+              alert('File Not Uploaded. ' + res.data.message);
             }
           });
 
@@ -90,7 +90,7 @@ function AddFile() {
         <div className="container d-flex  justify-content-center ">
           <div className="card">
             <div className="card-body">
-              <Form className="search-form d-flex flex-column" onSubmit={handleOnSubmit}>
+              <Form ref={form} className="search-form d-flex flex-column" onSubmit={handleOnSubmit}>
                 {errorMsg && <p className="errorMsg">{errorMsg}</p>}
                 <Row>
                   <Col>
@@ -118,19 +118,11 @@ function AddFile() {
                   </Form.Group>
                 </Col>
               </Row>
-                {/* <Row>
+              <Row>
                   <Col>
-                    <Form.Group controlId="reply_to" >
-                      <Form.Control
-                        type="email"
-                        name="reply_to"
-                        value={state.title || ''}
-                        placeholder="Enter email"
-                        onChange={handleInputChange}
-                      />
-                    </Form.Group>
+                    <input type="email" placeholder="Email" name='reply_to' required/>
                   </Col>
-                </Row> */}
+                </Row>
                 <div className="upload-section my-2">
                   <Dropzone onDrop={onDrop}>
                     {({ getRootProps, getInputProps }) => (
