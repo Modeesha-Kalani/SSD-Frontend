@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
 import "./assets/css/App.css";
 import AddFile from './Components/AddFile';
 import SendMessage from './Components/Contact';
