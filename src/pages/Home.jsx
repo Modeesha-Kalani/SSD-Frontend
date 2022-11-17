@@ -33,8 +33,8 @@ function Home() {
       <SideNav /> */}
       <div className="body pt-4">
         <h1>Home</h1>
-        <button onClick={() => getPosts()}>get post</button>
-        <button onClick={() => logout()}>logout</button>
+        {/* <button onClick={() => getPosts()}>get post</button> */}
+        <button className='btn btn-primary' onClick={() => logout()}>logout</button>
       </div>
 
     </div>

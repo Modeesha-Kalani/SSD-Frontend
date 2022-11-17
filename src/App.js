@@ -17,7 +17,6 @@ function App() {
                 <NavHeader />
                 <Routes>
                     <Route path="/" exact element={<Login />} />
-                    {/* <Route path="/register" exact element={<Register/>} /> */}
                     <Route path="/home" element={<Home />} />
                     <Route path="/register" element={<AddUser />} />
                     <Route path="/addFile" element={<AddFile />} />

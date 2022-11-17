@@ -120,7 +120,7 @@ function AddFile() {
               </Row>
               <Row>
                   <Col>
-                    <input type="email" placeholder="Email" name='reply_to' required/>
+                    <input type="email" className="form-control" placeholder="Email" name='reply_to' required/>
                   </Col>
                 </Row>
                 <div className="upload-section my-2">
