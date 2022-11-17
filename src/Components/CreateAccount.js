@@ -34,7 +34,7 @@ export default function CreateAccount() {
             "Employee Registred Successfully!",
             "success"
           ).then(() => {
-            window.location = "/add";
+            window.location = "/";
           });
         })
         .catch((err) => {
